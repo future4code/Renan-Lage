@@ -127,7 +127,7 @@ function retornaChamadaDeFilme(filme) {
       atoresDoFilme[i] = " " + filme.atores[i] 
    }
 
-   return `Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por ${atoresDoFilme}.`
+   return `Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por${atoresDoFilme}.`
 
  }
 // EXERCÍCIO 12
