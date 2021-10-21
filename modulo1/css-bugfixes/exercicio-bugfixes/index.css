@@ -140,3 +140,10 @@ td button {
 #back-button:hover {
     background-color: #635a3d
 }
+
+.botao-comprar:hover{
+    background-color: rgb(243, 114, 9);
+}
+.botao-comprar:active{
+    color: white
+}
