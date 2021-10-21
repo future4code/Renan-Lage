@@ -104,6 +104,11 @@ div:last-child {
 
 table {
     width: 60%;
+    margin: auto;
+}
+td img{
+    width: 50px;
+    background-color: white;
 }
 
 td button {
