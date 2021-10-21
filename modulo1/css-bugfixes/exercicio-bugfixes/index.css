@@ -8,6 +8,9 @@
     margin: 0;
     padding: 0;
 }
+body{
+    font-family: roboto;
+}
 
 h2 {
     background-color: #fe7e02;
@@ -15,7 +18,6 @@ h2 {
     color: white;
     text-align: center;
 }
-
 input {
     height: 20px;
     width: 500px;
