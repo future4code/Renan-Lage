@@ -1,0 +1,36 @@
+body{
+  margin: 0;
+}
+header{
+  background-color: rgb(198, 118, 235);
+  margin: 0;
+  padding: 30px;
+}
+.cabecalho{
+  text-align: center;
+}
+.logo {
+  display: block;
+  color: rgb(39, 1, 1);
+}
+.menu{
+  display: block;
+}
+.logo, h1{
+  font-size: 50px;
+}
+.logo, h2{
+  font-size: 30px;
+}
+
+#sobre-mim{
+  text-align: center;
+}
+#sobre-mim, h3{
+  font-size: 30px;
+}
+#sobre-mim, p {
+  font-size: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
