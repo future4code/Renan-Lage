@@ -1,0 +1,15 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+header{
+  background-color: coral;
+  margin: 0;
+  padding: 0;
+}
+.container-cabecalho{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-inline: 5%;
+}
