@@ -1,0 +1,57 @@
+body{
+  background-color: black;
+  margin: 0;
+}
+/* header */
+header{
+  background-color: #f19f4d;
+  margin: 0;
+  padding: 30px;
+  
+}
+.cabecalho{
+  text-align: center;
+}
+.logo {
+  padding-right: 30%;
+  display: inline-block;
+  color: rgb(8, 8, 7);
+}
+
+.logo, h1{
+  font-size: 50px;
+}
+.logo, h2{
+  font-size: 30px;
+}
+.menu{
+  display: block;
+}
+#foto-renan{
+  border-radius: 15px;
+  padding-left: 0;
+  margin-right: 20%;
+  display: inline-block;
+  width: 10%;
+}
+/* sobre mim */
+#sobre-mim{
+  display: inline-block;
+  text-align: center;
+  color: #f19f4d;
+}
+#sobre-mim, h3{
+  font-size: 30px;
+  display: inline-block;
+}
+#sobre-mim, p {
+  display: inline-block;
+  font-size: 20px;
+}
+#trabalhando{
+  
+  border: 10px;
+  border-color: #f19f4d ;
+  width: 20%;
+  display: inline-block;
+}
