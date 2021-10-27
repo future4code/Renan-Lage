@@ -4,6 +4,7 @@ body{
   grid-template-columns: 1fr 1fr 60px;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 /* cabeçalho */
 header{
@@ -42,4 +43,16 @@ footer{
 }
 footer, h3{
   color: rgb(255, 255, 255);
+}
+
+/* paginas videos */
+.container-pagina-video{
+  display: block;
+  margin: auto;
+}
+.container-pagina-video, video{
+  width: 800px;
+}
+.container-pagina-video, h2{
+  text-align: center;
 }
