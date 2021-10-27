@@ -18,6 +18,10 @@ header{
   align-items: center;
   padding-inline: 5%;
 }
+.container-cabecalho, a{
+  text-decoration: none;
+  color: black;
+}
 /* main */
 main{
   display: flex;
