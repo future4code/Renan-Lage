@@ -2,6 +2,7 @@ body{
   margin: 0;
   padding: 0;
 }
+/* cabeçalho */
 header{
   background-color: coral;
   margin: 0;
@@ -10,6 +11,15 @@ header{
 .container-cabecalho{
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   padding-inline: 5%;
+}
+/* rodape */
+footer{
+  padding: 20px;
+  text-align: center;
+  background-color: rgb(43, 42, 42);
+}
+footer, h3{
+  color: rgb(255, 255, 255);
 }
