@@ -1,4 +1,7 @@
 body{
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: 1fr 1fr 60px;
   margin: 0;
   padding: 0;
 }
@@ -13,6 +16,23 @@ header{
   justify-content: space-between;
   align-items: center;
   padding-inline: 5%;
+}
+/* main */
+main{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+.thumbnail{
+  width: 200px;
+}
+.container-video{
+  margin: 15px;
+  border: 1px solid gray;
+}
+.container-video, h2{
+  text-align: center;
 }
 /* rodape */
 footer{
