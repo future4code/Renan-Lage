@@ -1,0 +1,68 @@
+/* header */
+header, img{
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 30px;
+}
+header, h1{
+  font-size: 20px;
+  padding-right: 83%;
+}
+header{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  background-color: mediumvioletred;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+body{
+  margin: 0;
+  padding: 0;
+}
+/* main */
+main{
+  display: flex;
+}
+.icones{
+  width: 20px;
+}
+table{
+  display: flex;
+  width: 15%;
+  background-color: #f2d0e0;
+}
+#container{
+  display: grid;
+  grid-template-rows: 2fr 2fr 1fr;
+  grid-template-columns: 22% 22% 22% 22%;
+  row-gap: 20px;
+  column-gap: 40px;
+  width: 85%;
+}
+ol{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  list-style: none;
+ border: 1px solid darkgray;
+}
+li{
+  display: flex;
+  justify-content: center;
+}
+li, p{
+  text-align: center;
+}
+.foto-venda{
+  width: 75%;
+}
+
+/* footer */
+footer{
+  display: flex;
+  justify-content: center;
+  background-color: mediumvioletred;
+}
