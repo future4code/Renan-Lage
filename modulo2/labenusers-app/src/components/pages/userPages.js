@@ -9,6 +9,7 @@ const UserContainer = styled.div`
   flex-direction: column;
   align-items: center; 
 `
+
 const NomeContainer = styled.div`
   display: flex;
   align-items: center;
@@ -16,6 +17,7 @@ p{
   padding-right: 40%;
 }
 `
+
 const axionAuthorization = {
   headers: {
     Authorization: "renan-lopresti-carver"
@@ -26,7 +28,7 @@ export default class UserPage extends React.Component {
   state = {
     usuarios: [],
     page: "userPage",
-    userId:""
+    userId: ""
   }
   componentDiMont() {
     this.getUsers()
@@ -55,28 +57,34 @@ export default class UserPage extends React.Component {
         console.log(err)
       })
   }
-  ChangePage = (userId) =>{
-     if(this.state.page === "userPage"){
-       this.setState({userId: userId, page:"UserEdit"})
-     }
+
+  changePage = (userId) => {
+    if (this.state.page === "userPage") {
+      this.setState({ userId: userId, page: "UserEdit" })
+    } else if (this.state.page === "UserEdit") {
+      this.setState({ page: "userPage" })
+    }
   }
 
   render() {
     this.getUsers()
     return (
-      <UserContainer>{this.state.page === "userPage" ? (<div>
-          {this.state.usuarios.length === 0 && <div>Carregando...</div> }
+      <UserContainer>
+        {this.state.page === "userPage" ? (<div>
+          {this.state.usuarios.length === 0 && <div>Carregando...</div>}
           {this.state.usuarios.map(usuario => (
             <NomeContainer>
-              <p onClick={() => this.ChangePage(usuario.id)}>{usuario.name}</p>
+              <p onClick={() => this.changePage(usuario.id)}>{usuario.name}</p>
               <button onClick={() => this.deleteUser(usuario.id)}>Deletar</button>
             </NomeContainer>
           ))}
-          </div>
-        ): (
+        </div>
+        ) : (
           <UserEdit
-          userId={this.state.userId}
+            userId={this.state.userId}
+            changePage={this.changePage}
           />
+
         )
         }
 
