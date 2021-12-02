@@ -31,15 +31,18 @@ p{
 
 }
 `
-
-export const ContainerFooter = styled.div`
+export const Match = styled.div`
 display: flex;
+flex-direction: row;
 align-items: center;
-justify-content: space-around;
-padding: 5%;
-
+padding: 1%;
+p{
+ text-align: center;
+}
 `
 
 export const Imagem = styled.img`
-max-height: 300px;
+max-height: 50px;
 `
+
+
