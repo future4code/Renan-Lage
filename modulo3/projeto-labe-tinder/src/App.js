@@ -8,10 +8,24 @@ import axios from "axios";
 export default class App extends React.Component {
   state = {
     profile: [],
+    match: [],
     page: true
   }
   componentDidMount() {
     this.getProfile()
+  }
+
+  clearMatches = () => {
+    const url = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:RenanLopresti/clear"
+    axios
+      .put(url)
+      .then((res) => {
+       alert(res.data.message)
+        this.getMatches()
+      })
+      .catch((err) => {
+        console.log(err.data)
+      })
   }
 
   getProfile = () => {
@@ -20,9 +34,10 @@ export default class App extends React.Component {
       .get(url)
       .then((res) => {
         this.setState({ profile: res.data.profile })
+        this.getMatches()
       })
       .catch((err) => {
-        console.log9(err.data.response)
+        console.log(err.data.response)
       })
   }
 
@@ -44,8 +59,19 @@ export default class App extends React.Component {
       .catch((err) => {
         console.log(err.data.response)
       })
-
   }
+
+  getMatches = () => {
+    const url = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:RenanLopresti/matches"
+    axios(url)
+      .then((res) => {
+        this.setState({ match: res.data.matches })
+      })
+      .catch((err) => {
+        console.log(err.data)
+      })
+  }
+
   render() {
 
     return (
@@ -57,8 +83,10 @@ export default class App extends React.Component {
         /> :
           <CardMatch
             changePage={this.changePage}
+            match={this.state.match}
           />
         }
+        <button onClick={this.clearMatches}>Limpar Matches</button>
       </Body>
     )
   }
