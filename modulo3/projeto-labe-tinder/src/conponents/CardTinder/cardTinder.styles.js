@@ -14,21 +14,28 @@ justify-content: space-around;
 `
 
 export const ContainerMain = styled.div`
+width: 300px;
+height: 300px;
+background-size:contain;
+background-position:center;
+background-blend-mode: saturation;
+display: flex;
+align-items: center;
+flex-direction: column;
+justify-content: flex-end;
 .descricao{
  text-align: center;
  width: 68%;
 }
-display: flex;
-align-items: center;
-flex-direction: column;
 h2{
   margin: 0;
- padding: 0;
+  padding: 0;
+  color: whitesmoke;
  }
 p{
  margin-inline: 2%;
  padding: 0;
-
+  color: whitesmoke;
 }
 `
 

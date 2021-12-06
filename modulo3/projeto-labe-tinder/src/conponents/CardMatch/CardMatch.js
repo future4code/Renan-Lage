@@ -6,6 +6,7 @@ import {
  ContainerCard,
  Match
 } from "./CardMatch.styled"
+import people from '../../assents/people.svg'
 
 
 export default class CardMatch extends React.Component {
@@ -14,13 +15,13 @@ export default class CardMatch extends React.Component {
   return (
    <ContainerCard>
     <ContainerHeader>
-     <button onClick={this.props.changePage}>Choice</button>
+     <img src={people} onClick={this.props.changePage}></img>
      <h1>Astro Match</h1>
     </ContainerHeader>
     <ContainerMain>
      {this.props.match.map((profile) => {
       return (<Match>
-       <Imagem src={profile.photo}/>
+       <Imagem src={profile.photo} />
        <p>{profile.name}</p>
       </Match>)
      })}

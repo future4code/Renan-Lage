@@ -1,4 +1,4 @@
-import React from "react"; 
+import React from "react";
 import {
   Imagem,
   ContainerFooter,
@@ -6,27 +6,31 @@ import {
   ContainerHeader,
   ContainerCard
 } from "./cardTinder.styles"
+import heart from '../../assents/favorite.svg'
+import close from '../../assents/close.svg'
+import people from '../../assents/people.svg'
+import { Card } from "@material-ui/core";
+
 
 
 export default class CardContainer extends React.Component {
 
   render() {
     return (
-      <ContainerCard>
+      <Card>
         <ContainerHeader>
           <h1>Astro Match</h1>
-          <button onClick={this.props.changePage}>Matchs</button>
+          <img src={people} onClick={this.props.changePage}></img>
         </ContainerHeader>
-        <ContainerMain>
-          <Imagem src={this.props.profile.photo} />
+        <ContainerMain style={{ backgroundImage: `url(${this.props.profile.photo})` }}>
           <h2>{this.props.profile.name}, {this.props.profile.age}</h2>
           <p className="descricao">{this.props.profile.bio}</p>
         </ContainerMain>
         <ContainerFooter>
-          <button onClick={()=>this.props.choiceMatch(false)}>No</button>
-          <button onClick={()=>this.props.choiceMatch(true)}>Yes</button>
+          <img src={close} onClick={() => this.props.choiceMatch(false)}></img>
+          <img src={heart} onClick={() => this.props.choiceMatch(true)}></img>
         </ContainerFooter>
-      </ContainerCard>
+      </Card>
     );
   }
 }

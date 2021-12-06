@@ -5,6 +5,8 @@ import CardMatch from './conponents/CardMatch/CardMatch.js';
 import { Body } from './App.styled.js';
 import axios from "axios";
 
+
+
 export default class App extends React.Component {
   state = {
     profile: [],
@@ -20,7 +22,7 @@ export default class App extends React.Component {
     axios
       .put(url)
       .then((res) => {
-       alert(res.data.message)
+        alert(res.data.message)
         this.getMatches()
       })
       .catch((err) => {
@@ -37,7 +39,7 @@ export default class App extends React.Component {
         this.getMatches()
       })
       .catch((err) => {
-        console.log(err.data.response)
+        console.log(err.data)
       })
   }
 
@@ -87,6 +89,7 @@ export default class App extends React.Component {
           />
         }
         <button onClick={this.clearMatches}>Limpar Matches</button>
+
       </Body>
     )
   }
