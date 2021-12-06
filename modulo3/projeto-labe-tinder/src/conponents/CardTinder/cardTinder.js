@@ -22,15 +22,19 @@ export default class CardContainer extends React.Component {
           <h1>Astro Match</h1>
           <img src={people} onClick={this.props.changePage}></img>
         </ContainerHeader>
-        <ContainerMain style={{ backgroundImage: `url(${this.props.profile.photo})` }}>
-          <h2>{this.props.profile.name}, {this.props.profile.age}</h2>
-          <p className="descricao">{this.props.profile.bio}</p>
-        </ContainerMain>
+        {this.props.profileValido ?
+          <ContainerMain style={{ backgroundImage: `url(${this.props.profile.photo})` }}>
+            <h2>{this.props.profile.name}, {this.props.profile.age}</h2>
+            <p className="descricao">{this.props.profile.bio}</p>
+          </ContainerMain> :
+          <ContainerMain style={{ justifyContent: "center"}}>
+            <h1>Sem Perfis</h1>
+          </ContainerMain>}
         <ContainerFooter>
-          <img src={close} onClick={() => this.props.choiceMatch(false)}></img>
-          <img src={heart} onClick={() => this.props.choiceMatch(true)}></img>
+          <img src={close} disabled={this.props.profileValido} onClick={() => this.props.choiceMatch(false)}></img>
+          <img src={heart} disabled={this.props.profileValido} onClick={() => this.props.choiceMatch(true)}></img>
         </ContainerFooter>
-      </Card>
+      </Card >
     );
   }
 }

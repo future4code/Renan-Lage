@@ -19,6 +19,7 @@ height: 300px;
 background-size:contain;
 background-position:center;
 background-blend-mode: saturation;
+backdrop-filter: opacity(80%);
 display: flex;
 align-items: center;
 flex-direction: column;
@@ -31,11 +32,13 @@ h2{
   margin: 0;
   padding: 0;
   color: whitesmoke;
+  background: #202020;
  }
 p{
  margin-inline: 2%;
  padding: 0;
   color: whitesmoke;
+  background: #202020;
 }
 `
 

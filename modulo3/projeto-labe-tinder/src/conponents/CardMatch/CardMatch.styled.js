@@ -32,10 +32,15 @@ p{
 }
 `
 export const Match = styled.div`
+width: 90%;
+justify-content: space-around;
 display: flex;
 flex-direction: row;
 align-items: center;
 padding: 1%;
+img{
+  border-radius: 50%;
+}
 p{
  text-align: center;
 }

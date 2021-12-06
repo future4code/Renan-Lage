@@ -11,7 +11,8 @@ export default class App extends React.Component {
   state = {
     profile: [],
     match: [],
-    page: true
+    page: true,
+    profileValido: true
   }
   componentDidMount() {
     this.getProfile()
@@ -24,6 +25,7 @@ export default class App extends React.Component {
       .then((res) => {
         alert(res.data.message)
         this.getMatches()
+        this.setState({profileValido:true})
       })
       .catch((err) => {
         console.log(err.data)
@@ -35,11 +37,15 @@ export default class App extends React.Component {
     axios
       .get(url)
       .then((res) => {
-        this.setState({ profile: res.data.profile })
-        this.getMatches()
+        if (res.data.profile === null) {
+          this.setState({profile:[], profileValido:false})
+        } else {
+          this.setState({ profile: res.data.profile })
+          this.getMatches()
+        }
       })
       .catch((err) => {
-        console.log(err.data)
+        console.log(err.message)
       })
   }
 
@@ -82,6 +88,7 @@ export default class App extends React.Component {
           profile={this.state.profile}
           choiceMatch={() => this.choiceMatch()}
           changePage={this.changePage}
+          profileValido={this.state.profileValido}
         /> :
           <CardMatch
             changePage={this.changePage}

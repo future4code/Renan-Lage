@@ -7,13 +7,14 @@ import {
  Match
 } from "./CardMatch.styled"
 import people from '../../assents/people.svg'
+import { Card } from "@material-ui/core";
 
 
 export default class CardMatch extends React.Component {
 
  render() {
   return (
-   <ContainerCard>
+   <Card style={{width: 300, height:434}}>
     <ContainerHeader>
      <img src={people} onClick={this.props.changePage}></img>
      <h1>Astro Match</h1>
@@ -26,7 +27,7 @@ export default class CardMatch extends React.Component {
       </Match>)
      })}
     </ContainerMain>
-   </ContainerCard>
+   </Card>
   );
  }
 }
