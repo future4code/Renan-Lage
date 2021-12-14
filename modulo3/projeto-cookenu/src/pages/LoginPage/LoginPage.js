@@ -5,16 +5,18 @@ import LoginForm from './LoginForm';
 import { ScreenContainer, LogoImage, SignUpButtonContainer } from "./LoginPage.style";
 import { goToSignUp } from '../../routes/coordinator';
 import { useNavigate } from 'react-router-dom';
+import useUnprotectedPage from "../../hooks/useUnprotectedPage"
 
-export default function LoginPage() {
-const history = useNavigate()
+export default function LoginPage(setLoginButton) {
+ useUnprotectedPage()
+ const history = useNavigate()
  return (
   <ScreenContainer>
    <LogoImage src={logo} />
-    <LoginForm/>
+   <LoginForm setLoginButton={setLoginButton} />
    <SignUpButtonContainer>
     <Button
-    onClick={()=> goToSignUp(history)}
+     onClick={() => goToSignUp(history)}
      type={"submit"}
      fullWidth
      variant={"text"}

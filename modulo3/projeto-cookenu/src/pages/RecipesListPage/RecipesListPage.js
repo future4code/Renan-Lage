@@ -1,7 +1,9 @@
 import React from 'react';
+import useProtectedPage from '../../hooks/useProtectedPage';
 
 export default function RecipesListPage() {
- return(
+ useProtectedPage()
+ return (
   <div>
    <h1>Todas as Receitas</h1>
   </div>
