@@ -6,11 +6,12 @@ import RecipesDetailPage from '../pages/RecipesDetailPage/RecipesDetailPage'
 import RecipesListPage from '../pages/RecipesListPage/RecipesListPage'
 import SignUpPage from '../pages/SignUpPage/SignUpPage'
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
-
+import Header from "../componets/Header/Header";
 
 export default function Router() {
  return (
   <BrowserRouter>
+  <Header/>
    <Routes>
     <Route path={'/login'} element={<LoginPage />} />
     <Route path={'/cadastro'} element={<SignUpPage />} />
