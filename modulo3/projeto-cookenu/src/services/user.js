@@ -11,7 +11,7 @@ export const login = (body, clear, history, setLoginButton) => {
    setLoginButton("logout")
   })
   .catch((err) => {
-   alert(err.response.data.message)
+    alert(err.response.data.message)
   })
 }
 

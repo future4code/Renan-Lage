@@ -6,7 +6,7 @@ import { InputsContainer } from "./LoginPage.style";
 import { login } from '../../services/user';
 import { useNavigate } from 'react-router-dom';
 
-export default function LoginForm(setLoginButton) {
+ export default function LoginForm({setLoginButton}) {
  const [form, onChange, clear] = useForm({ email: "", password: "" })
  const history = useNavigate()
 

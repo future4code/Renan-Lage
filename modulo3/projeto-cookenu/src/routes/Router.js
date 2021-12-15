@@ -7,16 +7,16 @@ import RecipesListPage from '../pages/RecipesListPage/RecipesListPage'
 import SignUpPage from '../pages/SignUpPage/SignUpPage'
 import ErrorPage from "../pages/ErrorPage/ErrorPage"
 
-export default function Router({loginButton, setLoginButton}) {
- return (
-  
-   <Routes>
-    <Route path={'/login'} element={<LoginPage setLoginButton={setLoginButton} />} />
-    <Route path={'/cadastro'} element={<SignUpPage setLoginButton={setLoginButton} />} />
-    <Route path={'/'} element={<RecipesListPage />} />
-    <Route path={'/adicionar-receita'} element={<AddRecipesPage />} />
-    <Route path={'/detalhe/:id'} element={<RecipesDetailPage />} />
-    <Route path={'*'} element={<ErrorPage />} />
-   </Routes>
- )
+export default function Router({setLoginButton}) {
+  return (
+
+    <Routes>
+      <Route path={'/login'} element={<LoginPage setLoginButton={setLoginButton} />} />
+      <Route path={'/cadastro'} element={<SignUpPage setLoginButton={setLoginButton} />} />
+      <Route path={'/'} element={<RecipesListPage />} />
+      <Route path={'/adicionar-receita'} element={<AddRecipesPage />} />
+      <Route path={'/detalhe/:id'} element={<RecipesDetailPage />} />
+      <Route path={'*'} element={<ErrorPage />} />
+    </Routes>
+  )
 }

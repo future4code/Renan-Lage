@@ -1,9 +1,13 @@
 import React from "react";
+import {ErrorPageContainer, ErrorImage} from './ErrorPage.style'
+import error from '../../assets/error.png'
+import Typography from '@mui/material/Typography';
 
 export default function ErrorPage() {
  return(
-  <div>
-   <h1>Erro</h1>
-  </div>
+  <ErrorPageContainer>
+   <ErrorImage src={error} />
+   <Typography variant="h4" color={"primary"} >Erro 404 - Página não encontrada</Typography>
+  </ErrorPageContainer>
  )
 }

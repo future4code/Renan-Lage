@@ -7,7 +7,7 @@ import { goToSignUp } from '../../routes/coordinator';
 import { useNavigate } from 'react-router-dom';
 import useUnprotectedPage from "../../hooks/useUnprotectedPage"
 
-export default function LoginPage(setLoginButton) {
+export default function LoginPage({setLoginButton}) {
  useUnprotectedPage()
  const history = useNavigate()
  return (
