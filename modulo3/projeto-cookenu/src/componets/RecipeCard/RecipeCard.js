@@ -6,7 +6,7 @@ import { RecipeCardContainer, RecipeCardContent } from './RecipeCard.style';
 
 export default function RecipeCard(props) {
  return (
-  <RecipeCardContainer onClick={props.onclick}>
+  <RecipeCardContainer onClick={props.onClick}>
    <CardActionArea>
     <CardMedia
      component="img"

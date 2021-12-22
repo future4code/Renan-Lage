@@ -5,15 +5,19 @@ import useForm from "../../hooks/useForm"
 import { InputsContainer, SignUpFormContainer } from "./SignUpPage.style";
 import { signUp } from '../../services/user';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 export default function SignUpForm(setLoginButton) {
  const [form, onChange, clear] = useForm({ name: "", email: "", password: "" })
  const history = useNavigate()
+ const [isLoading, setIsLoading] = useState(false)
+
 
  const onSubmitForm = (event) => {
   event.preventDefault()
-  signUp(form, clear, history, setLoginButton)
+  signUp(form, clear, history, setLoginButton, setIsLoading)
  }
 
  return (
@@ -55,7 +59,7 @@ export default function SignUpForm(setLoginButton) {
      fullWidth
      variant={'contained'}
      color={"primary"}
-    >Fazer Cadastro</Button>
+    >{isLoading? <CircularProgress color='inherit' size={24}/> :<>Fazer Cadastro</>}</Button>
    </SignUpFormContainer>
   </form>
  )

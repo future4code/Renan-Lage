@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField'
 import React from "react";
@@ -5,14 +6,16 @@ import useForm from "../../hooks/useForm"
 import { InputsContainer } from "./LoginPage.style";
 import { login } from '../../services/user';
 import { useNavigate } from 'react-router-dom';
+import CircularProgress from '@mui/material/CircularProgress';
 
- export default function LoginForm({setLoginButton}) {
+export default function LoginForm({ setLoginButton }) {
  const [form, onChange, clear] = useForm({ email: "", password: "" })
  const history = useNavigate()
+ const [isLoading, setIsLoading] = useState(false)
 
  const onSubmitForm = (event) => {
   event.preventDefault()
-  login(form, clear, history, setLoginButton)
+  login(form, clear, history, setLoginButton, setIsLoading)
  }
 
  return (
@@ -43,7 +46,7 @@ import { useNavigate } from 'react-router-dom';
      fullWidth
      variant={'contained'}
      color={"primary"}
-    >Entrar</Button>
+    >{isLoading? <CircularProgress color='inherit' size={24}/> :<>Entrar</>}</Button>
    </form>
   </InputsContainer>
  )
