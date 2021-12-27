@@ -8,8 +8,6 @@ import { createRecipe } from '../../services/recipe'
 import { useState } from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 
-
-
 export default function AddRecipeForm() {
  useProtectedPage()
  const [form, onChange, clear] = useForm({ title: "", description: "", image: "" })

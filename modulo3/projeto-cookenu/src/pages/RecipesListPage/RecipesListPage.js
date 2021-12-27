@@ -7,6 +7,7 @@ import { BASE_URL } from '../../constants/urls'
 import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from 'react-router-dom';
 import { goToRecipeDetails, goToAddRecipe } from '../../routes/coordinator'
+import Loading from "../../componets/Loading/Loading"
 
 export default function RecipesListPage() {
   useProtectedPage()
@@ -27,7 +28,7 @@ export default function RecipesListPage() {
   })
   return (
     <RecipeListContainer>
-      {recipesCards}
+      {recipesCards.length > 0 ? recipesCards : <Loading/>}
       <AddRecipeButton
       onClick={()=> goToAddRecipe(history)}
         color={'primary'}>

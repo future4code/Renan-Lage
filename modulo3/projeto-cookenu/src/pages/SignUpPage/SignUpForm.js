@@ -59,7 +59,7 @@ export default function SignUpForm(setLoginButton) {
      fullWidth
      variant={'contained'}
      color={"primary"}
-    >{isLoading? <CircularProgress color='inherit' size={24}/> :<>Fazer Cadastro</>}</Button>
+    >{isLoading ? <CircularProgress color='inherit' size={24} /> : <>Fazer Cadastro</>}</Button>
    </SignUpFormContainer>
   </form>
  )

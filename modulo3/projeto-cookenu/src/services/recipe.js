@@ -8,12 +8,14 @@ export const createRecipe = (body, clear, setIsLoading) => {
     headers: {
       Authorization: localStorage.getItem("token")
     }
-  }).then((res) => {
-    alert(res.data.message)
-    clear()
-    setIsLoading(false)
-  }).cacth((err) => {
-    alert(err.response.message)
-    setIsLoading(false)
   })
+    .then(function (res) {
+      alert(res.data.message)
+      clear()
+      setIsLoading(false)
+    })
+    .cacth(function (err) {
+      alert("erro ao criar receita")
+      setIsLoading(false)
+    })
 }
