@@ -5,6 +5,7 @@ import LoginForm from './LoginForm';
 import { ScreenContainer, SignUpButtonContainer } from "./LoginPage.style";
 import { goToSignUp } from '../../routes/coordinator';
 import useUnprotectedPage from '../../hooks/useUnprotectedPage'
+import Typography from '@mui/material/Typography';
 
 export default function LoginPage() {
  useUnprotectedPage()
@@ -12,6 +13,7 @@ export default function LoginPage() {
 
  return (
   <ScreenContainer>
+    <Typography color="primary" variant="h4" component="div" gutterBottom>Login</Typography>
    <LoginForm />
    <SignUpButtonContainer>
     <Button
