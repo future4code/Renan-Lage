@@ -11,6 +11,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 export default function FeedForm() {
  const [form, onChange, clear] = useForm({ title: "", body: "" })
  const [isLoading, setIsLoading] = useState(false)
+
  const onSubmitForm = (event) =>{
   event.preventDefault()
  }
@@ -38,6 +39,8 @@ export default function FeedForm() {
       margin={"dense"}
       required
       type={"text"}
+      multiline
+      rows={4}
      />
     <Button
      type={"submit"}
