@@ -21,3 +21,8 @@ height:2em;
 width:50%;
 padding-top:1%;
 `
+
+export const ButtonContainer = styled.div`
+display: flex;
+
+`

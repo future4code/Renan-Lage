@@ -1,4 +1,3 @@
-import { clear } from "@testing-library/user-event/dist/clear";
 import axios from "axios";
 import { BASE_URL } from "../constants/urls"
 import { goToFeed } from "../routes/coordinator";
@@ -29,5 +28,6 @@ export const signUp = (body, clear, history, setIsLoading) => {
   })
   .catch((err) => {
    alert(err.response.data)
+   setIsLoading(false)
   })
 }
