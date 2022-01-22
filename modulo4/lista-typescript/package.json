@@ -4,7 +4,7 @@
  "description": "",
  "main": "index.js",
  "scripts": {
-  "start": "tsc && node ./build/index6.js"
+  "start": "tsc && node ./build/index8.js"
  },
  "keywords": [],
  "author": "Renan Lopresti",
