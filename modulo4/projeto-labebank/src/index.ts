@@ -21,22 +21,21 @@ app.get('/test', (req: Request, res: Response) => {
 })
 
 app.get('/users', (req: Request, res: Response) => {
- res.send({ result: users })
+ res.status(200).send({ result: users })
 })
 
 app.get('/user', (req: Request, res: Response) => {
  try {
   let CPF = req.headers.cpf as string
-  let name = req.headers.name as string
   let searchUser: User | undefined
 
-  searchUser = users.find((user) => CPF === user.CPF && name === user.name)
-  if (!CPF || !name) {
+  searchUser = users.find((user) => CPF === user.CPF)
+  if (!CPF) {
    throw new Error("Please compleat name and CPF")
   } else if (!searchUser) {
    throw new Error("User not found, check values")
   }
-  res.send({ result: searchUser })
+  res.status(200).send({ result: searchUser.balance })
 
  } catch (error: any) {
   switch (error.message) {
@@ -55,8 +54,53 @@ app.get('/user', (req: Request, res: Response) => {
 
 app.post('/user', (req: Request, res: Response) => {
  try {
+  let { name, CPF, birthDate } = req.body
+  let newUser: User
+  let birthSplit
+  let birthYear: number | undefined
+  let checkCPF
+
+  if (!name || !CPF || !birthDate) {
+   throw new Error("Please compleat all values")
+  }
+  
+  birthSplit = birthDate.split('/')
+  birthYear = Number(birthSplit[2])
+
+  checkCPF = users.find((user) => user.CPF === CPF)
+  if ((2022 - birthYear) < 18) {
+   throw new Error("need to be 18 years old")
+  } else if (checkCPF) {
+   throw new Error("CPF already existing")
+  }
+
+  newUser = {
+   id: Date.now(),
+   name,
+   CPF,
+   birthDate,
+   balance: 0,
+   extract: []
+  }
+
+  users.push(newUser)
+
+  res.send({ newUser, users, })
 
  } catch (error: any) {
-
+  switch (error.message) {
+   case "Please compleat all values":
+    res.status(401)
+    break
+   case "need to be 18 years old":
+    res.status(402)
+    break
+   case "CPF already existing":
+    res.status(403)
+    break
+   default:
+    res.status(500)
+  }
+  res.send({ message: error.message })
  }
 })
