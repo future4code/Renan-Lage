@@ -63,11 +63,12 @@ app.post('/user', (req: Request, res: Response) => {
   if (!name || !CPF || !birthDate) {
    throw new Error("Please compleat all values")
   }
-  
+
   birthSplit = birthDate.split('/')
   birthYear = Number(birthSplit[2])
 
   checkCPF = users.find((user) => user.CPF === CPF)
+
   if ((2022 - birthYear) < 18) {
    throw new Error("need to be 18 years old")
   } else if (checkCPF) {
@@ -102,5 +103,57 @@ app.post('/user', (req: Request, res: Response) => {
     res.status(500)
   }
   res.send({ message: error.message })
+ }
+})
+
+app.put('/user', (req: Request, res: Response) => {
+ try {
+  let { name, CPF, value } = req.body
+  let user
+  let object: ExtractBank
+  let newBalance
+  let date =  new Date().getDay
+
+  object = {
+   value,
+   date: "20/10/2022",
+   descripton: "Depósito de dinheiro"
+  }
+
+  user = users.find((user) => user.CPF === CPF && user.name === name)
+
+  if (!CPF || !name) {
+   throw new Error("CPF or Name invalid")
+  } else if (!user) {
+   throw new Error("User not found")
+  } else if (!value) {
+   throw new Error("Value invalid")
+  }
+
+  if (user) {
+   newBalance = user.balance + value
+   user.balance = newBalance
+   user.extract.push(object)
+  }
+
+  res.send({ user, value, date })
+
+ } catch (error: any) {
+  switch (error.message) {
+   case "CPF or Name invalid":
+    res.status(401)
+    break
+   case "User not found":
+    res.status(402)
+    break
+   case "Value invalid":
+    res.status(403)
+    break
+   default:
+    res.status(500)
+  }
+
+  res.send({ message: error.message })
+
  }
 })

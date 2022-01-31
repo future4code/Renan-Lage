@@ -9,7 +9,7 @@ export type User = {
 
 export type ExtractBank = {
  value: number,
- date: string,
+ date: string | undefined,
  descripton: string
 }
 
