@@ -27,5 +27,11 @@ WHERE (name LIKE "%G%" OR name LIKE "%g%");
 d)SELECT * FROM Actor
 WHERE 
 (name LIKE "%a%" OR name LIKE "%A%" OR name LIKE "%G%" OR name LIKE "%g%")
- AND salary BETWEEN 350000 AND 900000;
- 
+AND salary BETWEEN 350000 AND 900000;
+6a)SELECT id, title, rating  FROM Movies WHERE id = "001";
+b)SELECT * FROM Movies WHERE title = "bacurau";
+c)SELECT id, title, synopsis FROM Movies WHERE rating >= 7;
+7 a)SELECT * FROM Movies WHERE title LIKE "%VIDA%";
+b) SELECT * FROM Movies WHERE title LIKE "%dona%" OR synopsis LIKE "%dona%";
+c)SELECT * FROM Movies WHERE release_date < "2022-01-31" ;
+d)SELECT * FROM Movies WHERE release_date < "2022-01-31" AND ( title LIKE "%dona%" OR synopsis LIKE "%dona%") AND rating >= 7;
