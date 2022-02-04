@@ -1,0 +1,1 @@
+1a)recebemos em um array, por isso temos que usar o [0]
