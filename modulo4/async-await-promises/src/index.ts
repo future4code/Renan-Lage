@@ -39,20 +39,40 @@ async function createNews(news: newsType): Promise<void> {
 }
 
 
+// const sendNotifications = async (
+//  users: user[],
+//  message: string
+// ): Promise<void> => {
+
+//  try {
+//   for (const user of users) {
+//    await axios.post(`${baseURL}/notifications`, {
+//     subscriberId: user.id,
+//     message
+//    });
+//   }
+
+//   console.log("All notifications sent");
+//  } catch {
+//   console.log("Error");
+//  }
+// };
+
 const sendNotifications = async (
  users: user[],
  message: string
 ): Promise<void> => {
 
  try {
-  for (const user of users) {
-   await axios.post(`${baseURL}/notifications`, {
+  const promises = users.map(user => {
+   return axios.post(`${baseURL}/notifications`, {
     subscriberId: user.id,
-    message
-   });
-  }
+    message: message,
+   })
+  })
 
-  console.log("All notifications sent");
+  await Promise.all(promises);
+
  } catch {
   console.log("Error");
  }
