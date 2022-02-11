@@ -1,10 +1,14 @@
+import { getPurchaseForId } from './endpoints/getPurchaseForId';
+import { createPurchase } from './endpoints/createPurchase';
+import { getProducts } from './endpoints/getProducts';
+import { createProducts } from './endpoints/createProduct';
+import { getUsers } from './endpoints/getUsers';
 import { createUser } from './endpoints/createUser';
 import express, { Express, Request, Response } from "express";
 import knex from "knex";
 import cors from "cors";
 import dotenv from "dotenv";
 import { AddressInfo } from "net";
-
 
 dotenv.config();
 
@@ -18,10 +22,6 @@ export const connection = knex({
   database: process.env.DB_NAME
  }
 });
-console.log(process.env.DB_HOST)
-console.log(process.env.DB_USER)
-console.log(process.env.DB_PASS)
-console.log(process.env.DB_NAME)
 
 const app: Express = express();
 app.use(express.json());
@@ -36,5 +36,9 @@ const server = app.listen(process.env.PORT || 3003, () => {
  }
 });
 
-
+app.get("/users", getUsers)
+app.get("/users/:id/purchases", getPurchaseForId)
+app.get("/products", getProducts)
 app.post("/users", createUser)
+app.post("/products", createProducts)
+app.post("/purchases", createPurchase)
