@@ -21,7 +21,7 @@ export default async function signup(
   const id: string = new IdGenerated().generatedId()
 
   const cypherPassword: string = new HashManager().createHash(password)
-  
+
   await connection('labook_users')
    .insert({
     id,

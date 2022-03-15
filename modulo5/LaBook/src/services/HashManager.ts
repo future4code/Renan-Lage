@@ -1,4 +1,4 @@
-import { compareSync, genSaltSync, hashSync } from "bcryptjs"
+import * as bcrypt from 'bcryptjs';
 import dotenv from "dotenv"
 
 dotenv.config()
@@ -9,8 +9,8 @@ export class HashManager {
   plainText: string
  ): string => {
   const rounds: number = Number(process.env.COST)
-  const salt: string = genSaltSync(rounds)
-  const cypherText: string = hashSync(plainText, salt)
+  const salt: string = bcrypt.genSaltSync(rounds)
+  const cypherText: string = bcrypt.hashSync(plainText, salt)
 
   return cypherText
  }
@@ -19,6 +19,6 @@ export class HashManager {
   plainText: string,
   hash: string
  ): boolean => {
-  return compareSync(plainText, hash)
+  return bcrypt.compareSync(plainText, hash)
  }
 }

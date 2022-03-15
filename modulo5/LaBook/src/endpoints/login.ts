@@ -44,9 +44,7 @@ export default async function login(
    throw new Error(message)
   }
 
-
   const token = new Authenticator().generateToken({ id: user.id })
-
 
   res.status(200).send({ message, token })
 

@@ -14,13 +14,12 @@ export class Authenticator {
  ) => {
   const token = sign(
    payload,
-   process.env.JWT_SECRET as string,
+   process.env.JWT_KEY as string,
    { expiresIn: process.env.EXPIRES_IN }
   )
 
   return token;
  }
-
 
  getTokenData = (token: string) => {
   try {
@@ -38,6 +37,5 @@ export class Authenticator {
    return null
   }
  }
-
 }
 
