@@ -10,3 +10,23 @@ export const getLotterys = (setLoterrys) => {
    console.log(err.message)
   });
 };
+
+export const getLotterrysConcurse = (setLotterysConcurse) => {
+ axios.get(`${BASE_URL}loterias-concursos`)
+  .then((res) => {
+   setLotterysConcurse(res.data)
+  })
+  .catch((err) => {
+   console.log(err.message)
+  })
+}
+
+export const getLotteryDetail = (setLoteryDetail, id) => {
+ axios.get(`${BASE_URL}concursos/${id}`)
+  .then((res) => {
+   setLoteryDetail(res.data)
+  })
+  .catch((err) => {
+   console.log(err.message)
+  })
+}
