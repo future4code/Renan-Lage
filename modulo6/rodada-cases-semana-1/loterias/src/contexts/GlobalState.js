@@ -7,18 +7,21 @@ const GlobalState = (props) => {
  const [select, setSelect] = useState('Selecione a loteria')
  const [lotterys, setLotterys] = useState([])
  const [lotterysConcurse, setLotterysConcurse] = useState([])
+ const [color, setColor] = useState()
 
  const states = {
   lotterys,
   select,
   lotterysConcurse,
-  lot
+  lot,
+  color
  }
  const setters = {
   setLotterys,
   setSelect,
   setLotterysConcurse,
-  setLot
+  setLot,
+  setColor
  }
 
  return (
