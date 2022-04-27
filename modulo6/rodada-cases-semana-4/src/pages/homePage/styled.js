@@ -98,3 +98,12 @@ transition: 0.3s;
 }
 `
 
+export const DivFooter = styled.div`
+display: flex ;
+justify-content: space-evenly;
+padding: 1% 40%;
+.menu-text{
+ color: #5C16C5;
+ cursor: pointer;
+}
+`

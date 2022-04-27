@@ -18,7 +18,7 @@ const GlobalState = (props) => {
   movieTrailer,
   recomendedList
  }
- 
+
  const setters = {
   setMoviesList,
   setMovieDetails,
@@ -27,7 +27,7 @@ const GlobalState = (props) => {
   setMovieTrailer,
   setRecomendedList
  }
- 
+
  const clears = {
 
  }

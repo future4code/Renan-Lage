@@ -1,40 +1,40 @@
 import axios from "axios"
 import { URL_BASE, API_KEY } from "../constants/url"
 
-export const getPopularMovies = (set_data, page) => {
+export const getPopularMovies = (setMoviesList, page) => {
 
  axios.get(`${URL_BASE}popular?${API_KEY}&language=pt-BR&page=${page}`)
   .then((res) => {
-   set_data(res.data.results)
+   setMoviesList(res.data.results)
   })
   .catch((error) => {
    console.log(error.message)
   })
 }
 
-export const getMovieDetailts = (set_data, id) => {
+export const getMovieDetails = (setMoviesDetail, id) => {
 
- axios.get(`${URL_BASE}${id}?${API_KEY}&language=pt-BR&page=1`)
+ axios.get(`${URL_BASE}${id}?${API_KEY}&language=pt-BR&`)
   .then((resp) => {
-   set_data(resp.data)
+   setMoviesDetail(resp.data)
   })
   .catch((error) => {
    console.log(error.message)
   })
 }
 
-export const getMovieCredits = (set_data, id) => {
+export const getMovieCredits = (setMovieCredits, id) => {
 
  axios.get(`${URL_BASE}${id}/credits?${API_KEY}&language=pt-BR`)
   .then((resp) => {
-   set_data(resp.data)
+   setMovieCredits(resp.data)
   })
   .catch((error) => {
    console.log(error.message)
   })
 }
 
-export const getMovieVideos = (set_data, id) => {
+export const getMovieTrailer = (setMovieTrailer, id) => {
 
  axios.get(`${URL_BASE}${id}/videos?${API_KEY}&language=pt-BR`)
   .then((resp) => {
@@ -43,18 +43,18 @@ export const getMovieVideos = (set_data, id) => {
      return video
     }
    })
-   set_data(trailer)
+   setMovieTrailer(trailer)
   })
   .catch((error) => {
    console.log(error.message)
   })
 }
 
-export const getMovieList = (set_data, id) => {
+export const getMovieRecommendList = (setMovieRecommendList, id) => {
 
  axios.get(`${URL_BASE}${id}/recommendations?${API_KEY}&language=pt-BR`)
   .then((resp) => {
-   set_data(resp.data.results)
+   setMovieRecommendList(resp.data.results)
   })
   .catch((error) => {
    console.log(error.message)
