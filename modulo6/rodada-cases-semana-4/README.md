@@ -1,4 +1,4 @@
-# Projeto criado para o processo seletivo da empresa NOZ
+# Projeto criado para o curso Labenu
 
 O projeto foi criado em react, desenvolvido com a <https://developers.themoviedb.org/.>
 
