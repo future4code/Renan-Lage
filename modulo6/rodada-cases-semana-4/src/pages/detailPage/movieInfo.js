@@ -1,68 +1,54 @@
 import React from "react";
+import { convertDate } from "../../functions/convertDate";
 import {
  DivInfo,
- DivImg,
  DivText,
  DivTitle,
  DivSubTiltle,
- DivDate,
- DivGenre,
- DivTime,
- DivPop,
  DivSinopse,
- DivCrew,
- DivJob
+ DivCrew
 } from "./styled";
 
-export const MovieInfo = (props) => {
+export function MovieInfo(props) {
 
  return (
   <DivInfo>
-     {console.log(props.movie)}
-   <DivImg>
-    {props.movie.poster_path && <img src={`https://image.tmdb.org/t/p/w300${props.movie.poster_path}`} />}
-   </DivImg>
+   {props.movie.poster_path && <img src={`https://image.tmdb.org/t/p/w300${props.movie.poster_path}`} />}
 
    <DivText>
 
     <DivTitle>
-     <h2>{props.movie.title && props.movie.title}</h2>
-     <h2>({props.movie.release_date && props.movie.release_date.split("-").splice(0, 1)})</h2>
+     <h2>{props.movie.title && props.movie.title} ({props.movie.release_date && props.movie.release_date.split("-").splice(0, 1)})</h2>
     </DivTitle>
 
     <DivSubTiltle>
-     <DivDate>
-      <p>{props.movie.release_date} (BR) </p>
-     </DivDate>
+     <p>{props.movie.release_date && convertDate(props.movie.release_date, 1)} (BR) • </p>
 
-     <DivGenre>
-      {props.movie.genres && props.movie.genres.map((genre) => {
-       return <p key={genre.name}> {genre.name}</p>
-      })}
-     </DivGenre>
+     {props.movie.genres && props.movie.genres.map((genre, index) => {
+      if (props.movie.genres.length - 1 === index) {
+       return <p className="genrePara" key={genre.name}> {`${genre.name} `}</p>
+      } else {
+       return <p className="genrePara" key={genre.name}> {`${genre.name},`}</p>
+      }
+     })}
 
-     <DivTime>
-      <p>{props.movie.runtime}</p>
-     </DivTime>
+     <p> • {props.movie.runtime} min</p>
     </DivSubTiltle>
 
-    <DivPop>
-     <p className="section-3_child1"> popularidade: </p>
-     <p className="section-3_child2"><ion-icon name="pulse-outline" />{props.movie.popularity}</p>
-    </DivPop>
+    <p className="popularity">Popularidade: {props.movie.popularity}</p>
 
     <DivSinopse>
-     <h3>Sinopse</h3>
+     <h2>Sinopse</h2>
      <p>{props.movie.overview && props.movie.overview}</p>
     </DivSinopse>
 
     <DivCrew>
-     {props.movie.crew && props.movie.crew.slice(0, 5).map((crew) => {
+     {props.credits.crew && props.credits.crew.slice(0, 5).map((crew) => {
       return (
-       <DivJob key={crew.name}>
-        <p>{crew.name}</p>
+       <div key={crew.name}>
+        <h4>{crew.name}</h4>
         <p>{crew.job}</p>
-       </DivJob>
+       </div>
       )
      })}
     </DivCrew>

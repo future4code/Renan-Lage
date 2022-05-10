@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const DivMain = styled.div`
-
+.title{
+ padding:10px 0 0 30px;
+}
 `
 
 export const DivHeader = styled.div`
@@ -11,198 +13,159 @@ background-color: #5C16C5;
 export const Img = styled.img`
 padding:2%;
 width:10%;
+cursor: pointer;
 `
 
-export const DivImg = styled.div`
-
+export const CastContainer = styled.div`
+display: flex;
+overflow: hidden;
+overflow-x: scroll;
+scrollbar-color: gray silver;
+scrollbar-width: thin;
+margin: 1rem;
+margin-top: 3rem;
 `
 
-export const DivTitle = styled.div`
-
+export const Trailer = styled.iframe`
+ margin:10px 0 0 30px;
 `
 
-export const DivText = styled.div`
-
-`
-
-export const DivSubTiltle = styled.div`
-
-`
-
-export const DivDate = styled.div`
-
-`
-
-export const DivGenre = styled.div`
-`
-
-export const DivTime = styled.div`
-
-`
-
-export const DivSinopse = styled.div`
+export const RecommendationContainer = styled.div`
+display: flex;
+overflow-x: scroll;
+padding: 1em;
+min-height: 15rem;
+scrollbar-color: gray silver;
+scrollbar-width: thin;
 
 `
 
-export const DivPop = styled.div`
-
-`
-
-export const DivCrew = styled.div`
-
-`
-
-export const DivJob = styled.div`
-/* display: flex;
-flex-direction: column;
-width: 10rem;
-height: 4rem;
-margin-right: 2rem;
-p:nth-child(1){
- font-weight: bolder;
- margin-bottom: 0.15em;
- font-size: 1.05em;
-} */
-`
-
-
+// movieInfo
 export const DivInfo = styled.div`
-/* background-color: #2D0C5E; */
+background-color: #2D0C5E;
 min-height: 25rem;
 padding: 1rem;
 display: flex;
 flex-direction: row;
-/* p, h2{
+p{
+ color: #DDDDDD;
  margin: 0;
- display: inline;
 }
+ h2, h4{
+ color: #FFFFFF;
+ margin: 0;
+} 
+.popularity{
+ padding-bottom:35px;
+}
+`
+export const DivText = styled.div`
+margin-left: 33px;
+width: 100%;
+display: flex;
+flex-direction: column;
+margin-bottom: 100px;
+`
 
-.menu{
- display: flex;
- flex-direction: row;
- margin-left: 5%;
- margin-top: 1.5rem;
+export const DivTitle = styled.div`
+margin-bottom: 0.5rem;
+h2{
+margin-right: 0.50em;
 }
-.menu-photo{
- img{
-  position: absolute;
-  border-radius: 5px;
+`
+
+export const DivSubTiltle = styled.div`
+ display: flex ;
+ padding-bottom:17px;
+ .genrePara{
+  padding: 0 3px;
  }
+`
+
+export const DivSinopse = styled.div`
+padding-bottom: 15px;
+h2{
+ padding-bottom: 8px;
 }
-.menu-text{
- margin-left: 20rem;
+`
+
+export const DivCrew = styled.div`
+align-items:center;
+height:70px;
+display: grid;
+grid-template-columns: 9em 9em 9em ;
+grid-template-rows: 5em 5em;
+flex-wrap: wrap;
+`
+
+// movieCast
+export const CardCaststyle = styled.div`
+box-shadow: 0 1px 2px gray;
+margin: 0 10px 0 10px;
+min-width: 175px;
+max-width: 175px;
+height: 20rem;
+padding: 0.5em;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+border-radius: 7px;
+transition: 0.5s;
+border: 1px solid rgba(195, 195, 195, 0.5);
+img{
+ border-radius: 3px;
+ width: 165px;
+}
+p{
+ margin: 0;
+}
+p:nth-child(1){
+ font-weight: bold;
+}
+`
+
+export const CardText = styled.div`
+ height: 18%;
  width: 100%;
-}
-.section-1{
- margin-bottom: 0.5rem;
- h2{
-  margin-right: 0.50em;
- }
-}
-.section-2{
- margin-bottom: 0.5rem;
- display: flex;
- font-size: 0.95em;
- p{
-  margin-right: 1em;
- }
- .section-2_child1{
-  margin-right: 1em;
- }
- .section-2_child2{
-  margin-right: 1em;
- }
- .section-2_child3{
-  color: var(--primary);
-  font-size: 0.85em;
- }
-}
-.section-3{
- height: 5rem;
  display: flex;
  flex-direction: column;
- justify-content: center;
- .section-3_child1{
-  color: var(--details);
-  font-size: 0.75em;
-  font-weight: bolder;
- }
- .section-3_child2{
-  color: lime;
-  font-weight: bolder;
-  font-size: 1.75em;
-  margin-left: 2rem;
- }
+ justify-content: space-between;
+ padding: 0.50em;
+`
+
+// mocvieRecommendation
+
+export const CardRecommendation = styled.div`
+margin:0 15px 0 15px;
+min-height: 15rem;
+p{
+ margin: 0;
 }
-.section-4{
- width: 75%;
- margin-bottom: 1rem;
+p:nth-child(1){
+ font-size: 700;
+ font-weight: bolder;
 }
-.section-5{
+p:nth-child(2){
+ color: gray;
+ font-size: 700;
+}
+.card-text{
  display: flex;
- flex-direction: row;
- flex-wrap: wrap;
+ flex-direction: column;
+ justify-content: space-between;
+ min-height: 15%;
+ padding: 2px;
 }
-@media(max-width: 650px) {
- .menu{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  place-items: center;
-  text-align: center;
-  margin-left: 5%;
-  margin-top: 1.5rem;
-  padding: 0.5em;
+img{
+ width: 180px;
+ height: 270px;
+ border-radius: 3px;
+ box-shadow: 1px 1px 2px gray;
+ transition: 0.3s;
+ cursor: pointer;
+ :hover{
+  opacity: 0.85;
  }
- .menu-photo{
-  display: block;
-  img{
-   display: block;
-   width: 10rem;
-   border-radius: 5px;
-   margin-left: -5rem;
-  }
- }
- .menu-text{
-  width: 100%;
-  margin-left: 0rem;
-  margin-top: 15rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
- }
- .section-2 {
-  margin-bottom: 0.5rem;
-  display: flex;
-  font-size: 0.95em;
- }
- .section-3{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 5rem;
-  .section-3_child1{
-   color: var(--details);
-   font-size: 0.75em;
-   font-weight: bolder;
-  }
-  .section-3_child2{
-   color: lime;
-   font-weight: bolder;
-   font-size: 1.75em;
-   margin-left: 0;
-  }
- }
- .section-4{
-  width: 100%;
-  text-align: center;
- }
- .section-5{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-left: 5rem;
- }
-} */
- `
+}
+`

@@ -14,7 +14,7 @@ export const getPopularMovies = (setMoviesList, page) => {
 
 export const getMovieDetails = (setMoviesDetail, id) => {
 
- axios.get(`${URL_BASE}${id}?${API_KEY}&language=pt-BR&`)
+ axios.get(`${URL_BASE}${id}?${API_KEY}&language=pt-BR`)
   .then((resp) => {
    setMoviesDetail(resp.data)
   })
@@ -26,8 +26,8 @@ export const getMovieDetails = (setMoviesDetail, id) => {
 export const getMovieCredits = (setMovieCredits, id) => {
 
  axios.get(`${URL_BASE}${id}/credits?${API_KEY}&language=pt-BR`)
-  .then((resp) => {
-   setMovieCredits(resp.data)
+  .then((res) => {
+   setMovieCredits(res.data)
   })
   .catch((error) => {
    console.log(error.message)

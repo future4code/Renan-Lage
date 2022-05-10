@@ -1,6 +1,20 @@
 import styled from "styled-components";
 
 export const DivMain = styled.div`
+.title{
+ text-align:center;
+ width: 65%;
+ color:#FFFFFF;
+ font-size:40px;
+ font-weight:bold;
+}
+.filter{
+ text-align:center;
+ width: 65%;
+ color:#FFFFFF;
+ font-weight:bold;
+ font-size:20px;
+}
 `
 
 export const DivHeader = styled.div`
@@ -10,18 +24,6 @@ background-color: #5C16C5;
 export const Img = styled.img`
 padding:2%;
 width:10%;
-`
-
-export const DivText = styled.div`
-display: flex;
-flex-direction: column;
-text-align: center;
-width: 50%;
-@media(max-width: 650px) {
- margin-top: 2rem;
- width: 100%;
- text-align: start;
-}
 `
 
 export const DivFilter = styled.div`
@@ -76,12 +78,18 @@ export const ImgCard = styled.img`
 
 export const TextCard = styled.div`
  width: 80%;
- min-height: 50px;
  text-align: left;
- padding: 5px 0;
  display: flex;
  flex-direction: column;
- justify-content: space-between;
+ .movieTitle{
+  margin-bottom: 3px ;
+  font-weight:  bold;
+ }
+ .movieDate{
+  margin-bottom: 3px;
+  font-weight:700;
+  color:#646464;
+ }
 `
 
 export const MovieCard = styled.div`
@@ -90,7 +98,6 @@ flex-direction: column;
 width: 15rem;
 margin: 1rem;
 align-items: center;
-padding: 0.5em;
 cursor: pointer;
 transition: 0.3s;
 :hover{
@@ -103,7 +110,14 @@ display: flex ;
 justify-content: space-evenly;
 padding: 1% 40%;
 .menu-text{
+ text-decoration:underline;
  color: #5C16C5;
  cursor: pointer;
 }
+.actual-text{
+ text-decoration:underline;
+ color: #000000;
+ cursor: pointer;
+}
 `
+

@@ -5,22 +5,17 @@ import {
  DivHeader,
  Img,
  StyledMenu,
- DivText,
- DivFilter,
  DivButtons,
  LabelButton,
  SpanButton,
- MovieCard,
  DivMovie,
- ImgCard,
- TextCard,
  DivFooter
 } from "./styled"
 import logoImg from '../../assets/logo.svg'
-import Typography from '@mui/material/Typography';
 import { GlobalContext } from '../../contexts/GlobalStateContext'
 import { getPopularMovies } from "../../services/movies";
 import { goToMovieDetails } from "../../routes/coordinator";
+import { CardMovieHome } from "./cardMovie";
 
 export default function HomePage() {
  const buttonsName = [
@@ -45,21 +40,21 @@ export default function HomePage() {
   "Thriller",
  ]
 
- const { states, setters, clears } = useContext(GlobalContext)
+ const { states, setters } = useContext(GlobalContext)
 
  const history = useNavigate()
 
  useEffect(() => {
   getPopularMovies(setters.setMoviesList, states.page)
- }, [states.page])
+ }, [setters.setMoviesList, states.page])
 
  const menuText = () => {
   if (states.page === 1) {
    return (<DivFooter>
-    <p className="menu-text">
+    <p className="actual-text">
      {states.page}
     </p>
-    <p onClick={() => changePage(states.page + 1)} value={states.page} className="menu-text">
+    <p onClick={() => changePage(states.page + 1)} className="menu-text">
      {states.page + 1}
     </p>
     <p onClick={() => changePage(states.page + 2)} className="menu-text">
@@ -78,7 +73,7 @@ export default function HomePage() {
     <p onClick={() => changePage(states.page - 1)} className="menu-text">
      {states.page - 1}
     </p>
-    <p className="menu-text">
+    <p className="actual-text">
      {states.page}
     </p>
     <p onClick={() => changePage(states.page + 1)} className="menu-text">
@@ -97,11 +92,12 @@ export default function HomePage() {
 
  const changePage = (index) => {
   setters.setPage(index)
+  window.scrollTo(0, 0)
  }
 
  const changeToDetail = (movie) => {
-  setters.setMovieDetails(movie)
-  goToMovieDetails(history)
+  goToMovieDetails(history, movie.id)
+  window.scrollTo(0, 0)
  }
 
  return (
@@ -111,17 +107,10 @@ export default function HomePage() {
     />
    </DivHeader>
    <StyledMenu>
-
-    <DivText>
-     <Typography color={"white"} variant="h5">
+     <p className="title">
       Milhões de filmes, séries e pessoas para descobrir. Explore Já.
-     </Typography>
-    </DivText>
-
-    <DivFilter>
-     <Typography color={"white"} variant="h6" >Filtre por:</Typography>
-    </DivFilter>
-
+     </p>
+     <p className="filter">Filtre por:</p>
     <DivButtons>
      {buttonsName.map((but) => {
       return (
@@ -139,13 +128,11 @@ export default function HomePage() {
    <DivMovie>
     {states.moviesList && states.moviesList.map((movie) => {
      return (
-      <MovieCard onClick={() => changeToDetail(movie)} key={movie.id} >
-       <ImgCard src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
-       <TextCard>
-        <Typography sx={{ fontWeight: "bold" }} >{movie.title}</Typography>
-        <Typography>{movie.release_date}</Typography>
-       </TextCard>
-      </MovieCard>
+      <CardMovieHome
+       key={movie.id}
+       movie={movie}
+       onClick={() => changeToDetail(movie)}
+      />
      )
     })}
    </DivMovie>

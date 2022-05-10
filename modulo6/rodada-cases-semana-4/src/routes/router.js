@@ -11,7 +11,7 @@ export default function Router() {
   <BrowserRouter>
    <Routes>
     <Route path='/' element={<HomePage />} />
-    <Route path='/detail' element={<PageDetails />} />
+    <Route path='/details/:id' element={<PageDetails />} />
     <Route path='*' element={<ErrorPage />} />
    </Routes>
   </BrowserRouter>
