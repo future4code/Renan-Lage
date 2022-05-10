@@ -1,6 +1,6 @@
 # Projeto criado para o processo seletivo da empresa NOZ
 
-O projeto foi criado em react, desenvolvido com a API Swagger UI.
+O projeto foi criado em react, desenvolvido com a <https://developers.themoviedb.org/.>
 
 ### Instruções
 
@@ -8,4 +8,4 @@ Criar um clone em seu computador, após isso rodar o o comando bash "npm install
 
 ### Dóminio surge
 
-O projeto foi colocado em surge, basta entrar no dóminio <https://nervous-actor.surge.sh/>
+O projeto foi colocado em surge, basta entrar no dóminio <https://promobit-renan.surge.sh/>
